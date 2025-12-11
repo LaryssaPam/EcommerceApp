@@ -13,8 +13,8 @@ class CartController extends Controller
      */
     public function index()
     {
-        $cart = auth()->user()->getOrCreateCart();
-        $cart->load(['items.product.category']);
+        $cart = auth()->user()->getOrCreateCart(); // Récupère ou crée le panier de l'utilisateur
+        $cart->load(['items.product.category']); // Charge les relations nécessaires
 
         return view('cart.index', compact('cart'));
     }
@@ -25,7 +25,7 @@ class CartController extends Controller
     public function add(Product $product)
     {
         // Vérifie que le produit est disponible
-        if (!$product->in_stock) {
+        if (!$product->in_stock) { // ! si le produit n'est pas en stock retourne le message d'erreur
             return back()->with('error', 'Ce produit n\'est plus en stock.');
         }
 
@@ -49,6 +49,7 @@ class CartController extends Controller
         }
 
         return back()->with('success', $message);
+        redirect()->route('cart.index')->with('success', $message);
     }
 
     /**

@@ -57,13 +57,6 @@ class User extends Authenticatable
             'role' => UserRole::class,  // Cast automatique en Enum
         ];
     }
-    public function getOrCreateCart()
-{
-    if (!$this->cart) {
-        $this->cart()->create();
-    }
-    return $this->cart;
-}
 
     // ==========================================
     // MÉTHODES HELPER POUR LES RÔLES
@@ -122,6 +115,16 @@ class User extends Authenticatable
         return $this->hasOne(Cart::class);
     }
 
+    /**
+ * Récupère ou crée le panier de l'utilisateur
+ */
+public function getOrCreateCart()
+{
+    if (!$this->cart) {
+        $this->cart()->create();
+    }
+    return $this->cart;
+}
     /**
      * Un utilisateur peut avoir plusieurs commandes
      * Relation One-to-Many

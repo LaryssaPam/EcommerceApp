@@ -74,7 +74,7 @@
               </svg>
             </div>
             <p class="sr-only">4 out of 5 stars</p>
-            <a href="#" class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">117 reviews</a>
+            <a href="#" class="ml-3 text-sm font-medium text-orange-800 hover:text-indigo-500">117 reviews</a>
           </div>
         </div>
 
@@ -88,7 +88,7 @@
           <div class="mt-10">
             <div class="flex items-center justify-between">
             
-             
+              <a href="#" class="text-sm font-medium text-indigo-600 hover:text-indigo-500">Size guide</a>
             </div>
 
             <fieldset aria-label="Choose a size" class="mt-4">
