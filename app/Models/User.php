@@ -57,6 +57,13 @@ class User extends Authenticatable
             'role' => UserRole::class,  // Cast automatique en Enum
         ];
     }
+    public function getOrCreateCart()
+{
+    if (!$this->cart) {
+        $this->cart()->create();
+    }
+    return $this->cart;
+}
 
     // ==========================================
     // MÉTHODES HELPER POUR LES RÔLES
