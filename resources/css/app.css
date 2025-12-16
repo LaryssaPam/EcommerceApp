@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/*@keyframes scroll-right{
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translate(100%);
+    }
+}
+
+.scrolling-banner*/
