@@ -23,7 +23,7 @@
               <a href="{{route('home')}}" class="-m-2 block p-2 font-medium text-gray-900">Accueil</a>
             </div>
             <div class="flow-root">
-              <a href="#" class="-m-2 block p-2 font-medium text-gray-900">Produit</a>
+              <a href="{{route('products.index')}}" class="-m-2 block p-2 font-medium text-gray-900">Produit</a>
                <div class="flow-root">
               <a href="#" class="-m-2 block p-2 font-medium text-gray-900">Categorie</a>
            </div>
