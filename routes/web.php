@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 
 // Page d'accueil
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -27,7 +28,13 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');// Vider le panier
 });
 
-
+// Commande (Checkout)
+Route::middleware(['auth'])->group(function () {
+     Route::get('/checkout', [CheckoutController::class, 'teststripe'])->name('checkout.teststripe');
+     Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('checkout.success');// Afficher la page de paiement
+     Route::get('/checkout/cancel', [CheckoutController::class, 'cancel'])->name('checkout.cancel');
+      
+});
 
 /*
 
