@@ -1,5 +1,5 @@
 <!--Banniere Promotionnelle-->
-<div class="bg-orange-800 text-white p-4 text-center">
+<div class="bg-black text-white p-4 text-center">
   <div class="scrolling-content">
     <p class="text-lg font-semibold"> 
       @foreach ($banners as $banner )

@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white border-b border-black">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -10,13 +10,27 @@
                     </a>
                 </div>
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                </div>
-            </div>
+              <!-- Navigation Links -->
+<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+        🏠 Accueil
+    </x-nav-link>
+
+    <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.*')">
+        🛍️ Produits
+    </x-nav-link>
+
+    @auth
+        <x-nav-link :href="route('cart.index')" :active="request()->routeIs('cart.*')">
+            🛒 Mon Panier
+            @if(auth()->user()->cart && auth()->user()->cart->total_items > 0)
+                <span class="ml-1 bg-red-600 text-white text-xs px-2 py-1 rounded-full">
+                    {{ auth()->user()->cart->total_items }}
+                </span>
+            @endif
+        </x-nav-link>
+    @endauth
+</div>
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
