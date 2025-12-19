@@ -31,23 +31,23 @@ Route::middleware(['auth'])->group(function () {
 // Commande (Checkout)
 Route::middleware(['auth'])->group(function () {
      Route::get('/checkout', [CheckoutController::class, 'teststripe'])->name('checkout.teststripe');
+     Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');// Afficher la page de validation de commande
      Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('checkout.success');// Afficher la page de paiement
      Route::get('/checkout/cancel', [CheckoutController::class, 'cancel'])->name('checkout.cancel');
+     Route::post('/checkout/process', [CheckoutController::class, 'process'])->name('checkout.process');// Traiter la commande
       
 });
 
-/*
 
-use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-*/
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

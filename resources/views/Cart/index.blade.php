@@ -72,7 +72,7 @@
                 <form action="{{route('cart.clear')}}" method="post">
                     @csrf
                     @method('delete')
-              <button type="" class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-xs hover:bg-indigo-700">Checkout</a>
+              <button type="{{route('checkout.index')}}" class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-xs hover:bg-indigo-700">Checkout</a>
             </form>
             </div>
          
