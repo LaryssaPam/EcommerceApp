@@ -16,6 +16,10 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
+
+
 class PromotionalMessageResource extends Resource
 {
     protected static ?string $model = PromotionalMessage::class;
@@ -55,4 +59,14 @@ class PromotionalMessageResource extends Resource
             'edit' => EditPromotionalMessage::route('/{record}/edit'),
         ];
     }
+
+
+    public static function getRecordRouteBindingEloquentQuery(): Builder
+    {
+        return parent::getRecordRouteBindingEloquentQuery()
+            ->withoutGlobalScopes([
+                SoftDeletingScope::class,
+            ]);
+    }
+
 }
