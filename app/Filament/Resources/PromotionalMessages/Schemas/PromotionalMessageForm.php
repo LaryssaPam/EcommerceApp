@@ -2,13 +2,10 @@
 
 namespace App\Filament\Resources\PromotionalMessages\Schemas;
 
-<<<<<<< HEAD
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
-=======
->>>>>>> Branch-Cashier
 use Filament\Schemas\Schema;
 
 class PromotionalMessageForm
@@ -17,7 +14,6 @@ class PromotionalMessageForm
     {
         return $schema
             ->components([
-<<<<<<< HEAD
                 TextInput::make('title')
                     ->required(),
                 Textarea::make('content')
@@ -32,9 +28,7 @@ class PromotionalMessageForm
                     ->required(),
                 DateTimePicker::make('end_date')
                     ->required(),
-=======
                 //
->>>>>>> Branch-Cashier
             ]);
     }
 }

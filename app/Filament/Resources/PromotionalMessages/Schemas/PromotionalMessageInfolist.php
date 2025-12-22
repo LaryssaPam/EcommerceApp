@@ -2,11 +2,8 @@
 
 namespace App\Filament\Resources\PromotionalMessages\Schemas;
 
-<<<<<<< HEAD
 use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\TextEntry;
-=======
->>>>>>> Branch-Cashier
 use Filament\Schemas\Schema;
 
 class PromotionalMessageInfolist
@@ -15,7 +12,6 @@ class PromotionalMessageInfolist
     {
         return $schema
             ->components([
-<<<<<<< HEAD
                 TextEntry::make('title'),
                 TextEntry::make('content')
                     ->columnSpanFull(),
@@ -32,9 +28,7 @@ class PromotionalMessageInfolist
                 TextEntry::make('updated_at')
                     ->dateTime()
                     ->placeholder('-'),
-=======
                 //
->>>>>>> Branch-Cashier
             ]);
     }
 }
