@@ -108,9 +108,9 @@ class CheckoutController extends Controller
             }
 
             // Vide le panier
-            $cart->clear();
+            //$cart->clear();
 
-            DB::commit();
+          
 
 
             // 3. Créer la session de paiement Stripe
@@ -139,6 +139,8 @@ class CheckoutController extends Controller
         $order->update([
             'stripe_checkout_session_id' => $checkout->id,
         ]);
+        DB::commit();
+       
         
         // 5. Rediriger vers Stripe Checkout
         return redirect($checkout->url);
@@ -156,8 +158,19 @@ class CheckoutController extends Controller
     }
 
     // commande réalisé
-     public function success()  {
-         return view('checkout.success');
+     public function success(Request $request, Order $order)  {
+      
+        // récupérer session user
+         // récupérer id commande
+        // récupérer id session stripe
+      $checkoutSession = $request->user()->stripe()->checkout->sessions->retrieve($order->stripe_checkout_session_id);
+        //
+      if($checkoutSession->payment_status==='paid');
+      $order->update([
+        'status' => OrderStatus::CONFIRMED->value,
+      ]);
+      return redirect()->route('dashboard')->with('success','Commande passé avec success');
+        //dd($checkoutSession->payment_status);
     }
 
     // commande annulé

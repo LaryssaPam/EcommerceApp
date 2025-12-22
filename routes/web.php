@@ -32,7 +32,7 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth'])->group(function () {
      Route::get('/checkout/test', [CheckoutController::class, 'teststripe'])->name('checkout.teststripe');
      Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');// Afficher la page de validation de commande
-     Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('checkout.success');// Afficher la page de paiement
+     Route::get('/checkout/success/{order}', [CheckoutController::class, 'success'])->name('checkout.success');// Afficher la page de paiement
      Route::get('/checkout/cancel', [CheckoutController::class, 'cancel'])->name('checkout.cancel');
      Route::post('/checkout/process', [CheckoutController::class, 'process'])->name('checkout.process');// Traiter la commande
       
