@@ -30,7 +30,7 @@ Route::middleware(['auth'])->group(function () {
 
 // Commande (Checkout)
 Route::middleware(['auth'])->group(function () {
-     Route::get('/checkout', [CheckoutController::class, 'teststripe'])->name('checkout.teststripe');
+     Route::get('/checkout/test', [CheckoutController::class, 'teststripe'])->name('checkout.teststripe');
      Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');// Afficher la page de validation de commande
      Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('checkout.success');// Afficher la page de paiement
      Route::get('/checkout/cancel', [CheckoutController::class, 'cancel'])->name('checkout.cancel');
